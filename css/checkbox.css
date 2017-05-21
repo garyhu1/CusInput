@@ -1,0 +1,98 @@
+/*暂不做适配*/
+body,
+html{
+	margin: 0;
+	padding: 0;
+	background: #ADAEA8;
+}
+
+.box{
+	height: 100%;
+	width: 100%;
+}
+
+.my-label {
+	width: 100px;
+	height: 100px;
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+	border: 2px solid #D30D89;
+	margin: 100px auto;
+}
+/*隐藏原有的CheckBox*/
+#my-box {
+	display: none;
+}
+
+.my-label::before,
+.my-label::after {
+	content: " ";
+	display: block;
+	box-sizing: border-box;
+	position: absolute;
+	background: #2E7605;
+	transform-origin: left top;
+	height: 0;
+	width: 5px;
+}
+
+.my-label::before {
+	top: 76px;
+	left: 38px;
+	height: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	transform: rotate(-135deg);
+}
+
+.my-label::after {
+	left: 12px;
+	top: 51px;
+	height: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked+.my-label {
+	border-color: #F0E50D;
+	background: #F0E50D;
+}
+
+input[type=checkbox]:checked+.my-label::after,
+.my-label.checked::after {
+	height: 35px;
+	animation: beforeAnim .2s ease 0s forwards;
+}
+
+input[type=checkbox]:checked+.my-label::before,
+.my-label.checked::before {
+	height: 100px;
+	animation: afterAnim .4s ease 0s forwards;
+} 
+
+@keyframes beforeAnim {
+	0% {
+		height: 0px;
+	}
+	100% {
+		height: 35px;
+	}
+}
+
+@keyframes afterAnim {
+	0% {
+		height: 0px;
+	}
+	50% {
+		height: 0px;
+	}
+	100% {
+		height: 70px;
+	}
+}

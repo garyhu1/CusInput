@@ -1,0 +1,55 @@
+/*暂不适配*/
+body,
+html {
+	margin: 0;
+	padding: 0;
+	background: #ADAEA8;
+}
+
+#my-box {
+	display: none;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+.box {
+	width: 80px;
+	height: 30px;
+	background: #fff;
+	border-radius: 50px;
+	margin: 100px auto;
+	position: relative;
+}
+
+.box::after{
+	content: " ";
+	display: inline-block;
+	width: 60px;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	left: 10px;
+	top: 14px;
+}
+
+.my-label {
+	width: 22px;
+	height: 22px;
+	background: #000;
+	border-radius: 50px;
+	border: 1px solid #fff;
+    display: block;
+    position: absolute;
+    left: 9px;
+    top: 3px;
+    z-index: 1;
+    transition: all .2s ease;
+}
+
+input[type=checkbox]:checked+.my-label {
+	left: 46px;
+	background: #557E03;
+}

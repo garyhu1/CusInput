@@ -1,0 +1,80 @@
+/*暂不适配*/
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.box {
+	width: 500px;
+	margin: 300px auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: gray;
+}
+
+.box input,
+.box label {
+	transition: all .3s ease;
+}
+
+.line {
+	order: 100;
+	width: 0;
+	height: 2px;
+    background: #658db5;
+	transition: all .3s ease;
+	position: absolute;
+	left: 0;
+	top: 42px;
+}
+
+.my-label {
+	order: 100;
+	font-size: 18px;
+	position: absolute;
+	top: 18px;
+	left: 0;
+}
+
+#my-input {
+	order: 10;
+	width: 100%;
+	height: 30px;
+	margin: 0;
+	position: absolute;
+	outline: none;
+	border: none;
+	padding: 6px 0;
+	font-size: 18px;
+	border-bottom: 1px solid #D5D5D5;
+	z-index: -1;
+}
+
+#my-input::-moz-placeholder {
+	opacity: 0;
+}
+
+#my-input::-webkit-input-placeholder {
+	opacity: 0;
+}
+
+#my-input:-ms-input-placeholder {
+	opacity: 0;
+}
+
+#my-input:focus~.line,
+#my-input:not(:placeholder-shown)~.line {
+	width: 100%;
+}
+
+#my-input:focus+.my-label,
+#my-input:not(:placeholder-shown)+.my-label {
+	transform: translate(5px, -35px) scale(.9);
+	color: #174805;
+}
+
+#my-input:focus {
+	border-bottom-color: #fff;
+}

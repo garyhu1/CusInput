@@ -1,0 +1,42 @@
+/*暂不适配*/
+body,
+html {
+	margin: 0;
+	padding: 0;
+	background: #ADAEA8;
+}
+
+#my-box {
+	display: none;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+.box {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #fff;
+	margin: 100px auto;
+	border: 5px solid #0F1C50;
+	position: relative;
+}
+
+.my-label {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	position: absolute;
+	background: #557E03;
+	left: 2px;
+	top: 2px;
+	opacity: 0;
+	transition: all .2s ease;
+}
+
+input[type=checkbox]:checked+.my-label {
+	opacity: 1;
+}
