@@ -42,7 +42,7 @@
 			.ball {
 				position: absolute;
 				top: 0;
-				left: 5px;
+				left: 0;
 				width: 19px;
 				height: 19px;
 				background: #4eb900;
@@ -72,7 +72,7 @@
 				<div class="line"></div>
 				<div class="progress"></div>
 				<div class="ball"></div>
-				<div class="content">
+				<div class="content" disabled>
 					<span>无限</span>
 					<span>1000</span>
 					<span>5000</span>
@@ -100,7 +100,7 @@
 			if(move){
 				var _e = window.event||e;
 				_x = _e.clientX-x-x0;
-				if(_x>0&&_x<600){
+				if(_x>0&&_x<592){
 					ball.css("left",_x);
 				    progress.css("width",_x);
 				}
@@ -108,9 +108,9 @@
 		});
 		$(document).mouseup(function(e){
 			move = false;
-			if(_x>0&&_x<600){
+			if(_x>0&&_x<592){
 				if(_x<=100){
-					ball.animate({left: "5px"},200);
+					ball.animate({left: "0px"},200);
 					progress.animate({width: "0px"},200);
 				}else if(_x<=300){
 					ball.animate({left: "200px"},200);
@@ -119,7 +119,7 @@
 					ball.animate({left: "400px"},200);
 					progress.animate({width: "400px"},200);
 				}else {
-					ball.animate({left: "600px"},200);
+					ball.animate({left: "592px"},200);
 					progress.animate({width: "600px"},200);
 				}
 			}
