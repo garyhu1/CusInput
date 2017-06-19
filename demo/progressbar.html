@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>进度条</title>
-		<script type="text/javascript" src="../js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 		<style>
 			body,
 			html {
@@ -12,6 +12,7 @@
 				margin: 0;
 				background: #ADAEA8;
 			}
+			
 			.container {
 				position: relative;
 				height: 100px;
@@ -25,7 +26,7 @@
 				left: 5px;
 				height: 5px;
 				width: 600px;
-				background: #f0f0f0;
+				background: red;
 				border-radius: 5px;
 			}
 			
@@ -45,8 +46,10 @@
 				left: 0;
 				width: 19px;
 				height: 19px;
-				background: #4eb900;
+				background: #fff;
 				border-radius: 50%;
+				cursor: pointer;
+				z-index: 2;
 			}
 			
 			.content {
@@ -56,13 +59,17 @@
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
+				z-index: 1;
 			}
 			
 			.content span {
 				color: #000000;
 				font-size: 12px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
 			}
-			
 		</style>
 	</head>
 
@@ -81,7 +88,7 @@
 			</div>
 		</div>
 	</body>
-	
+
 	<script>
 		var container = document.getElementById("con");
 		var line = $(".line");
@@ -91,36 +98,52 @@
 		var move = false;
 		var x0 = container.offsetLeft;
 		var _x = 0;
-		ball.mousedown(function(e){
-			var _e = window.event||e;
+		ball.mousedown(function(e) {
+			var _e = window.event || e;
 			move = true;
 			x = _e.offsetX;
 		});
-		$(document).mousemove(function(e){
-			if(move){
-				var _e = window.event||e;
-				_x = _e.clientX-x-x0;
-				if(_x>0&&_x<592){
-					ball.css("left",_x);
-				    progress.css("width",_x);
+		$(document).mousemove(function(e) {
+			if(move) {
+				var _e = window.event || e;
+				_x = _e.clientX - x - x0;
+				if(_x > 0 && _x < 592) {
+					ball.css("left", _x);
+					progress.css("width", _x);
 				}
 			}
 		});
-		$(document).mouseup(function(e){
+		$(document).mouseup(function(e) {
 			move = false;
-			if(_x>0&&_x<592){
-				if(_x<=100){
-					ball.animate({left: "0px"},200);
-					progress.animate({width: "0px"},200);
-				}else if(_x<=300){
-					ball.animate({left: "200px"},200);
-					progress.animate({width: "200px"},200);
-				}else if(_x<=500){
-					ball.animate({left: "400px"},200);
-					progress.animate({width: "400px"},200);
-				}else {
-					ball.animate({left: "592px"},200);
-					progress.animate({width: "600px"},200);
+			if(_x > 0 && _x < 592) {
+				if(_x <= 100) {
+					ball.animate({
+						left: "0px"
+					}, 200);
+					progress.animate({
+						width: "0px"
+					}, 200);
+				} else if(_x <= 300) {
+					ball.animate({
+						left: "200px"
+					}, 200);
+					progress.animate({
+						width: "200px"
+					}, 200);
+				} else if(_x <= 500) {
+					ball.animate({
+						left: "400px"
+					}, 200);
+					progress.animate({
+						width: "400px"
+					}, 200);
+				} else {
+					ball.animate({
+						left: "592px"
+					}, 200);
+					progress.animate({
+						width: "600px"
+					}, 200);
 				}
 			}
 		});
